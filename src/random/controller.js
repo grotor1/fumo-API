@@ -8,7 +8,7 @@ router.get("/", function (req, res) {
   model.find({}, function (err, array) {
     if (err)
           return res.status(500).send("There was a problem finding the fumo.");
-      
+    res.set('Access-Control-Allow-Origin', '*');
     res.status(200).send(array[Math.floor(Math.random() * array.length)]);
   });
 });
